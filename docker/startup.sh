@@ -24,10 +24,18 @@ if [ ! -e /var/www/html/public/storage ]; then
     ln -s /var/www/html/storage/app/public /var/www/html/public/storage
 fi
 
-# Generate app key if not set
-if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:YOUR_APP_KEY_HERE" ] || [ "$APP_KEY" = "base64:7cKsxNhWv6iZDF08RhttrlyWK7qc1otlqEwvfrtnoHs=" ]; then
+# Create .env file if it doesn't exist
+if [ ! -f /var/www/html/.env ]; then
+    echo "Creating .env file..."
+    cp /var/www/html/.env.production /var/www/html/.env
+fi
+
+# Check if APP_KEY is properly set (skip generation if it's already set in environment)
+if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:YOUR_APP_KEY_HERE" ]; then
     echo "Generating application key..."
     php artisan key:generate --force
+else
+    echo "App key already set from environment variables"
 fi
 
 # Clear and cache Laravel configuration
@@ -41,6 +49,10 @@ php artisan route:clear 2>&1 || echo "Route clear failed"
 php artisan config:cache 2>&1 || echo "Config cache failed"
 php artisan view:cache 2>&1 || echo "View cache failed"
 php artisan route:cache 2>&1 || echo "Route cache failed"
+
+# Run database migrations
+echo "Running database migrations..."
+php artisan migrate --force 2>&1 || echo "Migration failed"
 
 # Enable error logging
 echo "Enabling error logging..."
