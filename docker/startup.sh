@@ -25,22 +25,28 @@ if [ ! -e /var/www/html/public/storage ]; then
 fi
 
 # Generate app key if not set
-if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:7cKsxNhWv6iZDF08RhttrlyWK7qc1otlqEwvfrtnoHs=" ]; then
+if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:YOUR_APP_KEY_HERE" ] || [ "$APP_KEY" = "base64:7cKsxNhWv6iZDF08RhttrlyWK7qc1otlqEwvfrtnoHs=" ]; then
     echo "Generating application key..."
     php artisan key:generate --force
 fi
 
 # Clear and cache Laravel configuration
 echo "Optimizing Laravel..."
-php artisan config:clear
-php artisan cache:clear
-php artisan view:clear
-php artisan route:clear
+php artisan config:clear 2>&1 || echo "Config clear failed"
+php artisan cache:clear 2>&1 || echo "Cache clear failed"
+php artisan view:clear 2>&1 || echo "View clear failed"
+php artisan route:clear 2>&1 || echo "Route clear failed"
 
 # Cache configurations for production
-php artisan config:cache
-php artisan view:cache
-php artisan route:cache
+php artisan config:cache 2>&1 || echo "Config cache failed"
+php artisan view:cache 2>&1 || echo "View cache failed"
+php artisan route:cache 2>&1 || echo "Route cache failed"
+
+# Enable error logging
+echo "Enabling error logging..."
+echo "log_errors = On" >> /usr/local/etc/php/php.ini
+echo "error_log = /var/log/apache2/php_errors.log" >> /usr/local/etc/php/php.ini
+echo "display_errors = Off" >> /usr/local/etc/php/php.ini
 
 echo "Starting Apache..."
 
