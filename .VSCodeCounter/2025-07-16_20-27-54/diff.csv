@@ -1,0 +1,8 @@
+"filename", "language", "Markdown", "PHP", "PostCSS", "JavaScript", "comment", "blank", "total"
+"c:\laragon\www\laravelshare\README.md", "Markdown", 246, 0, 0, 0, 0, 66, 312
+"c:\laragon\www\laravelshare\resources\views\download-password.blade.php", "PHP", 0, 13, 0, 0, 0, 2, 15
+"c:\laragon\www\laravelshare\resources\views\upload-success.blade.php", "PHP", 0, 54, 0, 0, 8, 8, 70
+"c:\laragon\www\laravelshare\resources\views\upload.blade.php", "PHP", 0, 63, 0, 0, 19, 21, 103
+"c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.css", "PostCSS", 0, 0, -1, 0, -2, 0, -3
+"c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.js", "JavaScript", 0, 0, 0, -6, 0, -1, -7
+"Total", "-", 246, 130, -1, -6, 25, 96, 490

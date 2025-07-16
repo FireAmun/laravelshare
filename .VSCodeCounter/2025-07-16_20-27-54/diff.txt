@@ -1,0 +1,41 @@
+Date : 2025-07-16 20:27:54
+Directory : c:\laragon\www\laravelshare
+Total : 6 files,  369 codes, 25 comments, 96 blanks, all 490 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Markdown   |          1 |        246 |          0 |         66 |        312 |
+| PHP        |          3 |        130 |         27 |         31 |        188 |
+| PostCSS    |          1 |         -1 |         -2 |          0 |         -3 |
+| JavaScript |          1 |         -6 |          0 |         -1 |         -7 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |          6 |        369 |         25 |         96 |        490 |
+| . (Files)                                                                          |          1 |        246 |          0 |         66 |        312 |
+| resources                                                                          |          3 |        130 |         27 |         31 |        188 |
+| resources\views                                                                    |          3 |        130 |         27 |         31 |        188 |
+| vendor                                                                             |          2 |         -7 |         -2 |         -1 |        -10 |
+| vendor\spatie                                                                      |          2 |         -7 |         -2 |         -1 |        -10 |
+| vendor\spatie\ignition                                                             |          2 |         -7 |         -2 |         -1 |        -10 |
+| vendor\spatie\ignition\resources                                                   |          2 |         -7 |         -2 |         -1 |        -10 |
+| vendor\spatie\ignition\resources\compiled                                          |          2 |         -7 |         -2 |         -1 |        -10 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                           | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\laragon\www\laravelshare\README.md                                              | Markdown   |        246 |          0 |         66 |        312 |
+| c:\laragon\www\laravelshare\resources\views\download-password.blade.php            | PHP        |         13 |          0 |          2 |         15 |
+| c:\laragon\www\laravelshare\resources\views\upload-success.blade.php               | PHP        |         54 |          8 |          8 |         70 |
+| c:\laragon\www\laravelshare\resources\views\upload.blade.php                       | PHP        |         63 |         19 |         21 |        103 |
+| c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.css | PostCSS    |         -1 |         -2 |          0 |         -3 |
+| c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.js  | JavaScript |         -6 |          0 |         -1 |         -7 |
+| Total                                                                              |            |        369 |         25 |         96 |        490 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

@@ -1,0 +1,64 @@
+version: "1"
+
+services:
+  - type: web
+    name: laravelshare
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_NAME
+        value: "LaravelShare"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        fromService:
+          type: web
+          name: laravelshare
+          property: host
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        fromDatabase:
+          name: laravelshare-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: laravelshare-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: laravelshare-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: laravelshare-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: laravelshare-db
+          property: password
+      - key: CACHE_DRIVER
+        value: database
+      - key: SESSION_DRIVER
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: FILESYSTEM_DISK
+        value: public
+      - key: MAX_FILE_SIZE
+        value: 5242880
+      - key: ENCRYPT_FILES
+        value: false
+      - key: UPLOADS_PER_HOUR
+        value: 5
+      - key: DOWNLOADS_PER_HOUR
+        value: 25
+
+databases:
+  - name: laravelshare-db
+    databaseName: laravelshare
+    user: laravelshare_user
