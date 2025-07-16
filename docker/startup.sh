@@ -24,6 +24,24 @@ if [ ! -e /var/www/html/public/storage ]; then
     ln -s /var/www/html/storage/app/public /var/www/html/public/storage
 fi
 
+# Generate app key if not set
+if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:YOUR_APP_KEY_HERE" ]; then
+    echo "Generating application key..."
+    php artisan key:generate --force
+fi
+
+# Clear and cache Laravel configuration
+echo "Optimizing Laravel..."
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan route:clear
+
+# Cache configurations for production
+php artisan config:cache
+php artisan view:cache
+php artisan route:cache
+
 echo "Starting Apache..."
 
 # Start Apache in foreground
