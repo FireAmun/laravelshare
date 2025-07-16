@@ -48,15 +48,6 @@ RUN composer install --optimize-autoloader --no-dev --no-interaction
 # Install Node dependencies and build assets
 RUN npm install && npm run build
 
-# Generate Laravel key and cache
-RUN php artisan key:generate --force && \
-    php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache
-
-# Create storage link
-RUN php artisan storage:link
-
 # Expose port
 EXPOSE 80
 
