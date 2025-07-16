@@ -1,0 +1,17 @@
+"filename", "language", "Ignore", "YAML", "Markdown", "Docker", "Shell Script", "PHP", "Properties", "PostCSS", "JavaScript", "comment", "blank", "total"
+"c:\laragon\www\laravelshare\.dockerignore", "Ignore", 36, 0, 0, 0, 0, 0, 0, 0, 0, 11, 11, 58
+"c:\laragon\www\laravelshare\Dockerfile", "Docker", 0, 0, 0, 32, 0, 0, 0, 0, 0, 13, 13, 58
+"c:\laragon\www\laravelshare\README.md", "Markdown", 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 21, 122
+"c:\laragon\www\laravelshare\app\Http\Kernel.php", "PHP", 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\laragon\www\laravelshare\app\Http\Middleware\LogErrors.php", "PHP", 0, 0, 0, 0, 0, 35, 0, 0, 0, 6, 7, 48
+"c:\laragon\www\laravelshare\app\Providers\AppServiceProvider.php", "PHP", 0, 0, 0, 0, 0, 12, 0, 0, 0, 1, 1, 14
+"c:\laragon\www\laravelshare\debug-enhanced.php", "PHP", 0, 0, 0, 0, 0, 115, 0, 0, 0, 9, 23, 147
+"c:\laragon\www\laravelshare\debug.php", "PHP", 0, 0, 0, 0, 0, 80, 0, 0, 0, 4, 17, 101
+"c:\laragon\www\laravelshare\docker\apache-config.conf", "Properties", 0, 0, 0, 0, 0, 0, 18, 0, 0, 6, 7, 31
+"c:\laragon\www\laravelshare\docker\startup.sh", "Shell Script", 0, 0, 0, 0, 41, 0, 0, 0, 0, 12, 14, 67
+"c:\laragon\www\laravelshare\logs.php", "PHP", 0, 0, 0, 0, 0, 67, 0, 0, 0, 2, 10, 79
+"c:\laragon\www\laravelshare\render.yaml", "YAML", 0, 62, 0, 0, 0, 0, 0, 0, 0, 0, 3, 65
+"c:\laragon\www\laravelshare\resources\views\layout.blade.php", "PHP", 0, 0, 0, 0, 0, 55, 0, 0, 0, 9, 13, 77
+"c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.css", "PostCSS", 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 3
+"c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 1, 7
+"Total", "-", 36, 62, 101, 32, 41, 365, 18, 1, 6, 75, 141, 878

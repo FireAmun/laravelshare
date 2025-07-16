@@ -1,0 +1,61 @@
+Date : 2025-07-17 01:02:37
+Directory : c:\laragon\www\laravelshare
+Total : 15 files,  662 codes, 75 comments, 141 blanks, all 878 lines
+
+Languages
++--------------+------------+------------+------------+------------+------------+
+| language     | files      | code       | comment    | blank      | total      |
++--------------+------------+------------+------------+------------+------------+
+| PHP          |          7 |        365 |         31 |         71 |        467 |
+| Markdown     |          1 |        101 |          0 |         21 |        122 |
+| YAML         |          1 |         62 |          0 |          3 |         65 |
+| Shell Script |          1 |         41 |         12 |         14 |         67 |
+| Ignore       |          1 |         36 |         11 |         11 |         58 |
+| Docker       |          1 |         32 |         13 |         13 |         58 |
+| Properties   |          1 |         18 |          6 |          7 |         31 |
+| JavaScript   |          1 |          6 |          0 |          1 |          7 |
+| PostCSS      |          1 |          1 |          2 |          0 |          3 |
++--------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |         15 |        662 |         75 |        141 |        878 |
+| . (Files)                                                                          |          7 |        493 |         39 |         98 |        630 |
+| app                                                                                |          3 |         48 |          7 |          8 |         63 |
+| app\Http                                                                           |          2 |         36 |          6 |          7 |         49 |
+| app\Http (Files)                                                                   |          1 |          1 |          0 |          0 |          1 |
+| app\Http\Middleware                                                                |          1 |         35 |          6 |          7 |         48 |
+| app\Providers                                                                      |          1 |         12 |          1 |          1 |         14 |
+| docker                                                                             |          2 |         59 |         18 |         21 |         98 |
+| resources                                                                          |          1 |         55 |          9 |         13 |         77 |
+| resources\views                                                                    |          1 |         55 |          9 |         13 |         77 |
+| vendor                                                                             |          2 |          7 |          2 |          1 |         10 |
+| vendor\spatie                                                                      |          2 |          7 |          2 |          1 |         10 |
+| vendor\spatie\ignition                                                             |          2 |          7 |          2 |          1 |         10 |
+| vendor\spatie\ignition\resources                                                   |          2 |          7 |          2 |          1 |         10 |
+| vendor\spatie\ignition\resources\compiled                                          |          2 |          7 |          2 |          1 |         10 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
+| filename                                                                           | language     | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
+| c:\laragon\www\laravelshare\.dockerignore                                          | Ignore       |         36 |         11 |         11 |         58 |
+| c:\laragon\www\laravelshare\Dockerfile                                             | Docker       |         32 |         13 |         13 |         58 |
+| c:\laragon\www\laravelshare\README.md                                              | Markdown     |        101 |          0 |         21 |        122 |
+| c:\laragon\www\laravelshare\app\Http\Kernel.php                                    | PHP          |          1 |          0 |          0 |          1 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\LogErrors.php                      | PHP          |         35 |          6 |          7 |         48 |
+| c:\laragon\www\laravelshare\app\Providers\AppServiceProvider.php                   | PHP          |         12 |          1 |          1 |         14 |
+| c:\laragon\www\laravelshare\debug-enhanced.php                                     | PHP          |        115 |          9 |         23 |        147 |
+| c:\laragon\www\laravelshare\debug.php                                              | PHP          |         80 |          4 |         17 |        101 |
+| c:\laragon\www\laravelshare\docker\apache-config.conf                              | Properties   |         18 |          6 |          7 |         31 |
+| c:\laragon\www\laravelshare\docker\startup.sh                                      | Shell Script |         41 |         12 |         14 |         67 |
+| c:\laragon\www\laravelshare\logs.php                                               | PHP          |         67 |          2 |         10 |         79 |
+| c:\laragon\www\laravelshare\render.yaml                                            | YAML         |         62 |          0 |          3 |         65 |
+| c:\laragon\www\laravelshare\resources\views\layout.blade.php                       | PHP          |         55 |          9 |         13 |         77 |
+| c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.css | PostCSS      |          1 |          2 |          0 |          3 |
+| c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.js  | JavaScript   |          6 |          0 |          1 |          7 |
+| Total                                                                              |              |        662 |         75 |        141 |        878 |
++------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+

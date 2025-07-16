@@ -1,0 +1,241 @@
+Date : 2025-07-17 01:02:37
+Directory : c:\laragon\www\laravelshare
+Total : 153 files,  19932 codes, 1492 comments, 1664 blanks, all 23088 lines
+
+Languages
++--------------+------------+------------+------------+------------+------------+
+| language     | files      | code       | comment    | blank      | total      |
++--------------+------------+------------+------------+------------+------------+
+| JSON         |          4 |     10,592 |          0 |          4 |     10,596 |
+| PHP          |        133 |      8,674 |      1,422 |      1,481 |     11,577 |
+| Markdown     |          1 |        392 |          0 |        109 |        501 |
+| YAML         |          1 |         62 |          0 |          3 |         65 |
+| JavaScript   |          6 |         49 |         24 |         19 |         92 |
+| Shell Script |          1 |         41 |         12 |         14 |         67 |
+| Ignore       |          1 |         36 |         11 |         11 |         58 |
+| Docker       |          1 |         32 |         13 |         13 |         58 |
+| XML          |          1 |         29 |          2 |          1 |         32 |
+| Properties   |          1 |         18 |          6 |          7 |         31 |
+| PostCSS      |          2 |          4 |          2 |          1 |          7 |
+| Batch        |          1 |          3 |          0 |          1 |          4 |
++--------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                      | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                         |        153 |     19,932 |      1,492 |      1,664 |     23,088 |
+| . (Files)                                                                                                 |         16 |     11,444 |         42 |        199 |     11,685 |
+| app                                                                                                       |         41 |      1,597 |        374 |        421 |      2,392 |
+| app\Console                                                                                               |          2 |         77 |         24 |         25 |        126 |
+| app\Console (Files)                                                                                       |          1 |         16 |          7 |          6 |         29 |
+| app\Console\Commands                                                                                      |          1 |         61 |         17 |         19 |         97 |
+| app\Exceptions                                                                                            |          1 |         21 |         21 |          7 |         49 |
+| app\Http                                                                                                  |         27 |      1,081 |        216 |        275 |      1,572 |
+| app\Http (Files)                                                                                          |          1 |         42 |         21 |          7 |         70 |
+| app\Http\Controllers                                                                                      |         13 |        804 |        100 |        196 |      1,100 |
+| app\Http\Controllers (Files)                                                                              |          4 |        570 |         40 |        132 |        742 |
+| app\Http\Controllers\Auth                                                                                 |          9 |        234 |         60 |         64 |        358 |
+| app\Http\Middleware                                                                                       |         11 |        169 |         69 |         54 |        292 |
+| app\Http\Requests                                                                                         |          2 |         66 |         26 |         18 |        110 |
+| app\Http\Requests (Files)                                                                                 |          1 |         15 |          5 |          4 |         24 |
+| app\Http\Requests\Auth                                                                                    |          1 |         51 |         21 |         14 |         86 |
+| app\Models                                                                                                |          2 |        108 |         16 |         29 |        153 |
+| app\Providers                                                                                             |          5 |         97 |         48 |         31 |        176 |
+| app\Services                                                                                              |          2 |        191 |         43 |         46 |        280 |
+| app\View                                                                                                  |          2 |         22 |          6 |          8 |         36 |
+| app\View\Components                                                                                       |          2 |         22 |          6 |          8 |         36 |
+| bootstrap                                                                                                 |          1 |         17 |         30 |          9 |         56 |
+| config                                                                                                    |         16 |        591 |        770 |        257 |      1,618 |
+| database                                                                                                  |         12 |        263 |         79 |         53 |        395 |
+| database\factories                                                                                        |          1 |         23 |         13 |          5 |         41 |
+| database\migrations                                                                                       |          9 |        212 |         54 |         39 |        305 |
+| database\seeders                                                                                          |          2 |         28 |         12 |          9 |         49 |
+| docker                                                                                                    |          2 |         59 |         18 |         21 |         98 |
+| public                                                                                                    |          1 |         14 |         30 |         12 |         56 |
+| resources                                                                                                 |         46 |      5,462 |         93 |        518 |      6,073 |
+| resources\css                                                                                             |          1 |          3 |          0 |          1 |          4 |
+| resources\js                                                                                              |          2 |          7 |         23 |         11 |         41 |
+| resources\views                                                                                           |         43 |      5,452 |         70 |        506 |      6,028 |
+| resources\views (Files)                                                                                   |         10 |      2,843 |         51 |        237 |      3,131 |
+| resources\views\admin                                                                                     |          5 |      1,314 |         17 |        121 |      1,452 |
+| resources\views\auth                                                                                      |          7 |        566 |          0 |         57 |        623 |
+| resources\views\components                                                                                |         13 |        173 |          2 |         28 |        203 |
+| resources\views\errors                                                                                    |          1 |         20 |          0 |          6 |         26 |
+| resources\views\layouts                                                                                   |          3 |        197 |          0 |         28 |        225 |
+| resources\views\profile                                                                                   |          4 |        339 |          0 |         29 |        368 |
+| resources\views\profile (Files)                                                                           |          1 |         71 |          0 |          6 |         77 |
+| resources\views\profile\partials                                                                          |          3 |        268 |          0 |         23 |        291 |
+| routes                                                                                                    |          5 |        120 |         44 |         45 |        209 |
+| tests                                                                                                     |         11 |        358 |         10 |        128 |        496 |
+| tests (Files)                                                                                             |          2 |         20 |          3 |         10 |         33 |
+| tests\Feature                                                                                             |          8 |        328 |          4 |        114 |        446 |
+| tests\Feature (Files)                                                                                     |          2 |         87 |          4 |         29 |        120 |
+| tests\Feature\Auth                                                                                        |          6 |        241 |          0 |         85 |        326 |
+| tests\Unit                                                                                                |          1 |         10 |          3 |          4 |         17 |
+| vendor                                                                                                    |          2 |          7 |          2 |          1 |         10 |
+| vendor\spatie                                                                                             |          2 |          7 |          2 |          1 |         10 |
+| vendor\spatie\ignition                                                                                    |          2 |          7 |          2 |          1 |         10 |
+| vendor\spatie\ignition\resources                                                                          |          2 |          7 |          2 |          1 |         10 |
+| vendor\spatie\ignition\resources\compiled                                                                 |          2 |          7 |          2 |          1 |         10 |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
+| filename                                                                                                  | language     | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
+| c:\laragon\www\laravelshare\.dockerignore                                                                 | Ignore       |         36 |         11 |         11 |         58 |
+| c:\laragon\www\laravelshare\Dockerfile                                                                    | Docker       |         32 |         13 |         13 |         58 |
+| c:\laragon\www\laravelshare\README.md                                                                     | Markdown     |        392 |          0 |        109 |        501 |
+| c:\laragon\www\laravelshare\app\Console\Commands\DeleteExpiredFiles.php                                   | PHP          |         61 |         17 |         19 |         97 |
+| c:\laragon\www\laravelshare\app\Console\Kernel.php                                                        | PHP          |         16 |          7 |          6 |         29 |
+| c:\laragon\www\laravelshare\app\Exceptions\Handler.php                                                    | PHP          |         21 |         21 |          7 |         49 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\AuthenticatedSessionController.php                  | PHP          |         29 |          9 |         11 |         49 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\ConfirmablePasswordController.php                   | PHP          |         29 |          6 |          7 |         42 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\EmailVerificationNotificationController.php         | PHP          |         17 |          3 |          6 |         26 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\EmailVerificationPromptController.php               | PHP          |         16 |          3 |          4 |         23 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\NewPasswordController.php                           | PHP          |         40 |         14 |          8 |         62 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\PasswordController.php                              | PHP          |         21 |          3 |          6 |         30 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\PasswordResetLinkController.php                     | PHP          |         27 |         11 |          7 |         45 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\RegisteredUserController.php                        | PHP          |         35 |          8 |          9 |         52 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Auth\VerifyEmailController.php                           | PHP          |         20 |          3 |          6 |         29 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\Controller.php                                           | PHP          |          9 |          0 |          4 |         13 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\FileController.php                                       | PHP          |        191 |         18 |         53 |        262 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\ProfileController.php                                    | PHP          |         38 |          9 |         14 |         61 |
+| c:\laragon\www\laravelshare\app\Http\Controllers\SecurityController.php                                   | PHP          |        332 |         13 |         61 |        406 |
+| c:\laragon\www\laravelshare\app\Http\Kernel.php                                                           | PHP          |         42 |         21 |          7 |         70 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\Authenticate.php                                          | PHP          |         11 |          3 |          4 |         18 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\EncryptCookies.php                                        | PHP          |          8 |          6 |          4 |         18 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\LogErrors.php                                             | PHP          |         35 |          6 |          7 |         48 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\PreventRequestsDuringMaintenance.php                      | PHP          |          8 |          6 |          4 |         18 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\RedirectIfAuthenticated.php                               | PHP          |         20 |          5 |          6 |         31 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\SecurityHeaders.php                                       | PHP          |         34 |          6 |          8 |         48 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\TrimStrings.php                                           | PHP          |         11 |          5 |          4 |         20 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\TrustHosts.php                                            | PHP          |         12 |          5 |          4 |         21 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\TrustProxies.php                                          | PHP          |         14 |         10 |          5 |         29 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\ValidateSignature.php                                     | PHP          |          8 |         11 |          4 |         23 |
+| c:\laragon\www\laravelshare\app\Http\Middleware\VerifyCsrfToken.php                                       | PHP          |          8 |          6 |          4 |         18 |
+| c:\laragon\www\laravelshare\app\Http\Requests\Auth\LoginRequest.php                                       | PHP          |         51 |         21 |         14 |         86 |
+| c:\laragon\www\laravelshare\app\Http\Requests\ProfileUpdateRequest.php                                    | PHP          |         15 |          5 |          4 |         24 |
+| c:\laragon\www\laravelshare\app\Models\File.php                                                           | PHP          |         82 |          0 |         21 |        103 |
+| c:\laragon\www\laravelshare\app\Models\User.php                                                           | PHP          |         26 |         16 |          8 |         50 |
+| c:\laragon\www\laravelshare\app\Providers\AppServiceProvider.php                                          | PHP          |         24 |          9 |          6 |         39 |
+| c:\laragon\www\laravelshare\app\Providers\AuthServiceProvider.php                                         | PHP          |         12 |         11 |          6 |         29 |
+| c:\laragon\www\laravelshare\app\Providers\BroadcastServiceProvider.php                                    | PHP          |         12 |          3 |          5 |         20 |
+| c:\laragon\www\laravelshare\app\Providers\EventServiceProvider.php                                        | PHP          |         21 |         12 |          6 |         39 |
+| c:\laragon\www\laravelshare\app\Providers\RouteServiceProvider.php                                        | PHP          |         28 |         13 |          8 |         49 |
+| c:\laragon\www\laravelshare\app\Services\ActivityLogService.php                                           | PHP          |         63 |         13 |         15 |         91 |
+| c:\laragon\www\laravelshare\app\Services\FileSecurityService.php                                          | PHP          |        128 |         30 |         31 |        189 |
+| c:\laragon\www\laravelshare\app\View\Components\AppLayout.php                                             | PHP          |         11 |          3 |          4 |         18 |
+| c:\laragon\www\laravelshare\app\View\Components\GuestLayout.php                                           | PHP          |         11 |          3 |          4 |         18 |
+| c:\laragon\www\laravelshare\bootstrap\app.php                                                             | PHP          |         17 |         30 |          9 |         56 |
+| c:\laragon\www\laravelshare\composer.json                                                                 | JSON         |         69 |          0 |          1 |         70 |
+| c:\laragon\www\laravelshare\composer.lock                                                                 | JSON         |      8,181 |          0 |          1 |      8,182 |
+| c:\laragon\www\laravelshare\config\app.php                                                                | PHP          |         48 |        134 |         34 |        216 |
+| c:\laragon\www\laravelshare\config\auth.php                                                               | PHP          |         29 |         83 |         16 |        128 |
+| c:\laragon\www\laravelshare\config\broadcasting.php                                                       | PHP          |         35 |         23 |         13 |         71 |
+| c:\laragon\www\laravelshare\config\cache.php                                                              | PHP          |         58 |         34 |         19 |        111 |
+| c:\laragon\www\laravelshare\config\cors.php                                                               | PHP          |         11 |         12 |         12 |         35 |
+| c:\laragon\www\laravelshare\config\database.php                                                           | PHP          |         83 |         47 |         22 |        152 |
+| c:\laragon\www\laravelshare\config\filesystems.php                                                        | PHP          |         32 |         32 |         13 |         77 |
+| c:\laragon\www\laravelshare\config\hashing.php                                                            | PHP          |         12 |         32 |          9 |         53 |
+| c:\laragon\www\laravelshare\config\logging.php                                                            | PHP          |         70 |         34 |         19 |        123 |
+| c:\laragon\www\laravelshare\config\mail.php                                                               | PHP          |         53 |         53 |         19 |        125 |
+| c:\laragon\www\laravelshare\config\queue.php                                                              | PHP          |         47 |         32 |         15 |         94 |
+| c:\laragon\www\laravelshare\config\sanctum.php                                                            | PHP          |         15 |         41 |         12 |         68 |
+| c:\laragon\www\laravelshare\config\security.php                                                           | PHP          |         49 |         35 |          7 |         91 |
+| c:\laragon\www\laravelshare\config\services.php                                                           | PHP          |         17 |         11 |          7 |         35 |
+| c:\laragon\www\laravelshare\config\session.php                                                            | PHP          |         22 |        147 |         33 |        202 |
+| c:\laragon\www\laravelshare\config\view.php                                                               | PHP          |         10 |         20 |          7 |         37 |
+| c:\laragon\www\laravelshare\database\factories\UserFactory.php                                            | PHP          |         23 |         13 |          5 |         41 |
+| c:\laragon\www\laravelshare\database\migrations\2014_10_12_000000_create_users_table.php                  | PHP          |         23 |          6 |          4 |         33 |
+| c:\laragon\www\laravelshare\database\migrations\2014_10_12_100000_create_password_reset_tokens_table.php  | PHP          |         19 |          6 |          4 |         29 |
+| c:\laragon\www\laravelshare\database\migrations\2019_08_19_000000_create_failed_jobs_table.php            | PHP          |         23 |          6 |          4 |         33 |
+| c:\laragon\www\laravelshare\database\migrations\2019_12_14_000001_create_personal_access_tokens_table.php | PHP          |         24 |          6 |          4 |         34 |
+| c:\laragon\www\laravelshare\database\migrations\2025_07_16_074956_create_files_table.php                  | PHP          |         27 |          6 |          4 |         37 |
+| c:\laragon\www\laravelshare\database\migrations\2025_07_16_080427_add_user_id_to_files_table.php          | PHP          |         21 |          6 |          4 |         31 |
+| c:\laragon\www\laravelshare\database\migrations\2025_07_16_090001_create_activity_logs_table.php          | PHP          |         27 |          6 |          6 |         39 |
+| c:\laragon\www\laravelshare\database\migrations\2025_07_16_090002_create_security_logs_table.php          | PHP          |         26 |          6 |          5 |         37 |
+| c:\laragon\www\laravelshare\database\migrations\2025_07_16_090003_add_security_fields_to_users_table.php  | PHP          |         22 |          6 |          4 |         32 |
+| c:\laragon\www\laravelshare\database\seeders\AdminUserSeeder.php                                          | PHP          |         19 |          3 |          4 |         26 |
+| c:\laragon\www\laravelshare\database\seeders\DatabaseSeeder.php                                           | PHP          |          9 |          9 |          5 |         23 |
+| c:\laragon\www\laravelshare\debug-enhanced.php                                                            | PHP          |        115 |          9 |         23 |        147 |
+| c:\laragon\www\laravelshare\debug.php                                                                     | PHP          |         80 |          4 |         17 |        101 |
+| c:\laragon\www\laravelshare\docker\apache-config.conf                                                     | Properties   |         18 |          6 |          7 |         31 |
+| c:\laragon\www\laravelshare\docker\startup.sh                                                             | Shell Script |         41 |         12 |         14 |         67 |
+| c:\laragon\www\laravelshare\logs.php                                                                      | PHP          |         67 |          2 |         10 |         79 |
+| c:\laragon\www\laravelshare\package-lock.json                                                             | JSON         |      2,325 |          0 |          1 |      2,326 |
+| c:\laragon\www\laravelshare\package.json                                                                  | JSON         |         17 |          0 |          1 |         18 |
+| c:\laragon\www\laravelshare\phpunit.xml                                                                   | XML          |         29 |          2 |          1 |         32 |
+| c:\laragon\www\laravelshare\postcss.config.js                                                             | JavaScript   |          6 |          0 |          1 |          7 |
+| c:\laragon\www\laravelshare\public\index.php                                                              | PHP          |         14 |         30 |         12 |         56 |
+| c:\laragon\www\laravelshare\render.yaml                                                                   | YAML         |         62 |          0 |          3 |         65 |
+| c:\laragon\www\laravelshare\resources\css\app.css                                                         | PostCSS      |          3 |          0 |          1 |          4 |
+| c:\laragon\www\laravelshare\resources\js\app.js                                                           | JavaScript   |          4 |          0 |          4 |          8 |
+| c:\laragon\www\laravelshare\resources\js\bootstrap.js                                                     | JavaScript   |          3 |         23 |          7 |         33 |
+| c:\laragon\www\laravelshare\resources\views\about.blade.php                                               | PHP          |        226 |          0 |         21 |        247 |
+| c:\laragon\www\laravelshare\resources\views\admin\dashboard.blade.php                                     | PHP          |        213 |          0 |         15 |        228 |
+| c:\laragon\www\laravelshare\resources\views\admin\files.blade.php                                         | PHP          |        211 |          0 |         10 |        221 |
+| c:\laragon\www\laravelshare\resources\views\admin\layout.blade.php                                        | PHP          |        542 |         17 |         52 |        611 |
+| c:\laragon\www\laravelshare\resources\views\admin\settings.blade.php                                      | PHP          |        212 |          0 |         37 |        249 |
+| c:\laragon\www\laravelshare\resources\views\admin\users.blade.php                                         | PHP          |        136 |          0 |          7 |        143 |
+| c:\laragon\www\laravelshare\resources\views\auth\admin-login.blade.php                                    | PHP          |         97 |          0 |         10 |        107 |
+| c:\laragon\www\laravelshare\resources\views\auth\confirm-password.blade.php                               | PHP          |         60 |          0 |          6 |         66 |
+| c:\laragon\www\laravelshare\resources\views\auth\forgot-password.blade.php                                | PHP          |         56 |          0 |          7 |         63 |
+| c:\laragon\www\laravelshare\resources\views\auth\login.blade.php                                          | PHP          |         87 |          0 |         10 |         97 |
+| c:\laragon\www\laravelshare\resources\views\auth\register.blade.php                                       | PHP          |        104 |          0 |          9 |        113 |
+| c:\laragon\www\laravelshare\resources\views\auth\reset-password.blade.php                                 | PHP          |         94 |          0 |          9 |        103 |
+| c:\laragon\www\laravelshare\resources\views\auth\verify-email.blade.php                                   | PHP          |         68 |          0 |          6 |         74 |
+| c:\laragon\www\laravelshare\resources\views\components\application-logo.blade.php                         | PHP          |          3 |          0 |          1 |          4 |
+| c:\laragon\www\laravelshare\resources\views\components\auth-session-status.blade.php                      | PHP          |         13 |          0 |          2 |         15 |
+| c:\laragon\www\laravelshare\resources\views\components\danger-button.blade.php                            | PHP          |          3 |          0 |          1 |          4 |
+| c:\laragon\www\laravelshare\resources\views\components\dropdown-link.blade.php                            | PHP          |          1 |          0 |          1 |          2 |
+| c:\laragon\www\laravelshare\resources\views\components\dropdown.blade.php                                 | PHP          |         39 |          0 |          5 |         44 |
+| c:\laragon\www\laravelshare\resources\views\components\input-error.blade.php                              | PHP          |         11 |          0 |          2 |         13 |
+| c:\laragon\www\laravelshare\resources\views\components\input-label.blade.php                              | PHP          |          4 |          0 |          2 |          6 |
+| c:\laragon\www\laravelshare\resources\views\components\modal.blade.php                                    | PHP          |         73 |          2 |          4 |         79 |
+| c:\laragon\www\laravelshare\resources\views\components\nav-link.blade.php                                 | PHP          |          9 |          0 |          3 |         12 |
+| c:\laragon\www\laravelshare\resources\views\components\primary-button.blade.php                           | PHP          |          3 |          0 |          1 |          4 |
+| c:\laragon\www\laravelshare\resources\views\components\responsive-nav-link.blade.php                      | PHP          |          9 |          0 |          3 |         12 |
+| c:\laragon\www\laravelshare\resources\views\components\secondary-button.blade.php                         | PHP          |          3 |          0 |          1 |          4 |
+| c:\laragon\www\laravelshare\resources\views\components\text-input.blade.php                               | PHP          |          2 |          0 |          2 |          4 |
+| c:\laragon\www\laravelshare\resources\views\dashboard.blade.php                                           | PHP          |        209 |          0 |         13 |        222 |
+| c:\laragon\www\laravelshare\resources\views\download-password.blade.php                                   | PHP          |         89 |          0 |         11 |        100 |
+| c:\laragon\www\laravelshare\resources\views\errors\404.blade.php                                          | PHP          |         20 |          0 |          6 |         26 |
+| c:\laragon\www\laravelshare\resources\views\layout.blade.php                                              | PHP          |        586 |         17 |         49 |        652 |
+| c:\laragon\www\laravelshare\resources\views\layouts\app.blade.php                                         | PHP          |         31 |          0 |          6 |         37 |
+| c:\laragon\www\laravelshare\resources\views\layouts\guest.blade.php                                       | PHP          |         78 |          0 |          9 |         87 |
+| c:\laragon\www\laravelshare\resources\views\layouts\navigation.blade.php                                  | PHP          |         88 |          0 |         13 |        101 |
+| c:\laragon\www\laravelshare\resources\views\profile\edit.blade.php                                        | PHP          |         71 |          0 |          6 |         77 |
+| c:\laragon\www\laravelshare\resources\views\profile\partials\delete-user-form.blade.php                   | PHP          |         86 |          0 |          8 |         94 |
+| c:\laragon\www\laravelshare\resources\views\profile\partials\update-password-form.blade.php               | PHP          |         89 |          0 |          7 |         96 |
+| c:\laragon\www\laravelshare\resources\views\profile\partials\update-profile-information-form.blade.php    | PHP          |         93 |          0 |          8 |        101 |
+| c:\laragon\www\laravelshare\resources\views\security-dashboard.blade.php                                  | PHP          |        186 |          0 |          9 |        195 |
+| c:\laragon\www\laravelshare\resources\views\upload-success.blade.php                                      | PHP          |        148 |          8 |         15 |        171 |
+| c:\laragon\www\laravelshare\resources\views\upload.blade.php                                              | PHP          |        479 |         26 |         58 |        563 |
+| c:\laragon\www\laravelshare\resources\views\upload_backup.blade.php                                       | PHP          |        400 |          0 |         19 |        419 |
+| c:\laragon\www\laravelshare\resources\views\upload_new.blade.php                                          | PHP          |        402 |          0 |         19 |        421 |
+| c:\laragon\www\laravelshare\resources\views\welcome.blade.php                                             | PHP          |        118 |          0 |         23 |        141 |
+| c:\laragon\www\laravelshare\routes\api.php                                                                | PHP          |          6 |         10 |          4 |         20 |
+| c:\laragon\www\laravelshare\routes\auth.php                                                               | PHP          |         43 |          0 |         17 |         60 |
+| c:\laragon\www\laravelshare\routes\channels.php                                                           | PHP          |          5 |         10 |          4 |         19 |
+| c:\laragon\www\laravelshare\routes\console.php                                                            | PHP          |          6 |         10 |          4 |         20 |
+| c:\laragon\www\laravelshare\routes\web.php                                                                | PHP          |         60 |         14 |         16 |         90 |
+| c:\laragon\www\laravelshare\scheduler.bat                                                                 | Batch        |          3 |          0 |          1 |          4 |
+| c:\laragon\www\laravelshare\tailwind.config.js                                                            | JavaScript   |         17 |          1 |          4 |         22 |
+| c:\laragon\www\laravelshare\tests\CreatesApplication.php                                                  | PHP          |         13 |          3 |          6 |         22 |
+| c:\laragon\www\laravelshare\tests\Feature\Auth\AuthenticationTest.php                                     | PHP          |         41 |          0 |         15 |         56 |
+| c:\laragon\www\laravelshare\tests\Feature\Auth\EmailVerificationTest.php                                  | PHP          |         50 |          0 |         16 |         66 |
+| c:\laragon\www\laravelshare\tests\Feature\Auth\PasswordConfirmationTest.php                               | PHP          |         32 |          0 |         13 |         45 |
+| c:\laragon\www\laravelshare\tests\Feature\Auth\PasswordResetTest.php                                      | PHP          |         52 |          0 |         22 |         74 |
+| c:\laragon\www\laravelshare\tests\Feature\Auth\PasswordUpdateTest.php                                     | PHP          |         41 |          0 |         11 |         52 |
+| c:\laragon\www\laravelshare\tests\Feature\Auth\RegistrationTest.php                                       | PHP          |         25 |          0 |          8 |         33 |
+| c:\laragon\www\laravelshare\tests\Feature\ExampleTest.php                                                 | PHP          |         11 |          4 |          5 |         20 |
+| c:\laragon\www\laravelshare\tests\Feature\ProfileTest.php                                                 | PHP          |         76 |          0 |         24 |        100 |
+| c:\laragon\www\laravelshare\tests\TestCase.php                                                            | PHP          |          7 |          0 |          4 |         11 |
+| c:\laragon\www\laravelshare\tests\Unit\ExampleTest.php                                                    | PHP          |         10 |          3 |          4 |         17 |
+| c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.css                        | PostCSS      |          1 |          2 |          0 |          3 |
+| c:\laragon\www\laravelshare\vendor\spatie\ignition\resources\compiled\ignition.js                         | JavaScript   |          6 |          0 |          1 |          7 |
+| c:\laragon\www\laravelshare\vite.config.js                                                                | JavaScript   |         13 |          0 |          2 |         15 |
+| Total                                                                                                     |              |     19,932 |      1,492 |      1,664 |     23,088 |
++-----------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Log;
 
 class FileController extends Controller
 {
@@ -118,6 +119,14 @@ class FileController extends Controller
 
     public function show($uuid)
     {
+        // Debug: Log the request details
+        Log::info('Download show method called', [
+            'uuid' => $uuid,
+            'user_agent' => request()->header('User-Agent'),
+            'method' => request()->method(),
+            'url' => request()->fullUrl()
+        ]);
+
         $file = File::where('uuid', $uuid)->firstOrFail();
 
         if ($file->isExpired()) {
@@ -125,9 +134,11 @@ class FileController extends Controller
         }
 
         if ($file->hasPassword()) {
+            Log::info('File has password, showing password form');
             return view('download-password', compact('file'));
         }
 
+        Log::info('File has no password, starting download');
         return $this->downloadFile($file);
     }
 
@@ -172,6 +183,13 @@ class FileController extends Controller
 
     private function downloadFile(File $file)
     {
+        Log::info('downloadFile method called', [
+            'file_uuid' => $file->uuid,
+            'storage_path' => $file->storage_path,
+            'original_name' => $file->original_name,
+            'user_agent' => request()->header('User-Agent')
+        ]);
+
         $storagePath = $file->storage_path;
 
         // Decrypt file if encrypted
@@ -206,9 +224,49 @@ class FileController extends Controller
         // Increment download count
         $file->increment('downloads');
 
-        return response()->streamDownload(function() use ($file) {
-            echo Storage::disk('public')->get($file->storage_path);
-        }, $file->original_name);
+        // Get the full file path
+        $fullPath = storage_path('app/public/' . $storagePath);
+        
+        // Mobile-friendly download with proper headers
+        return $this->createMobileFriendlyDownload($fullPath, $file->original_name, $file->mime_type);
+    }
+
+    /**
+     * Create a mobile-friendly download response
+     */
+    private function createMobileFriendlyDownload($filePath, $fileName, $mimeType)
+    {
+        if (!file_exists($filePath)) {
+            abort(404, 'File not found.');
+        }
+
+        $fileSize = filesize($filePath);
+        $fileName = basename($fileName);
+        
+        // Clean the filename for mobile compatibility
+        $fileName = preg_replace('/[^A-Za-z0-9\-_\.]/', '_', $fileName);
+        
+        // Detect mobile user agent
+        $userAgent = request()->header('User-Agent', '');
+        $isMobile = preg_match('/Mobile|Android|iPhone|iPad/', $userAgent);
+        
+        $headers = [
+            'Content-Type' => $mimeType ?: 'application/octet-stream',
+            'Content-Length' => $fileSize,
+            'Content-Disposition' => 'attachment; filename="' . $fileName . '"',
+            'Cache-Control' => 'no-cache, no-store, must-revalidate',
+            'Pragma' => 'no-cache',
+            'Expires' => '0',
+        ];
+        
+        // Additional mobile-specific headers
+        if ($isMobile) {
+            $headers['X-Content-Type-Options'] = 'nosniff';
+            $headers['X-Download-Options'] = 'noopen';
+        }
+
+        // Use response()->file() for better mobile compatibility
+        return response()->file($filePath, $headers);
     }
 
     public function dashboard()
