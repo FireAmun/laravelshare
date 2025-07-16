@@ -25,7 +25,7 @@ if [ ! -e /var/www/html/public/storage ]; then
 fi
 
 # Generate app key if not set
-if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:YOUR_APP_KEY_HERE" ]; then
+if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:7cKsxNhWv6iZDF08RhttrlyWK7qc1otlqEwvfrtnoHs=" ]; then
     echo "Generating application key..."
     php artisan key:generate --force
 fi
