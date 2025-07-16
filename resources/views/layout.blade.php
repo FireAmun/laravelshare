@@ -58,20 +58,54 @@
             }
         }
 
-        // Simple dropdown toggle function
-        function toggleDropdown() {
+        // Simple dropdown toggle function with improved mobile support
+        function toggleDropdown(event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
             const menu = document.getElementById('user-dropdown-menu');
             const button = document.getElementById('user-menu-button');
             const arrow = document.getElementById('dropdown-arrow');
+            const isMobile = window.innerWidth <= 768;
 
             if (menu.style.display === 'none' || menu.style.display === '') {
                 menu.style.display = 'block';
                 button.setAttribute('aria-expanded', 'true');
                 arrow.style.transform = 'rotate(180deg)';
+                
+                // Add mobile-specific behavior
+                if (isMobile) {
+                    document.body.classList.add('dropdown-open');
+                    // Create backdrop for mobile
+                    const backdrop = document.createElement('div');
+                    backdrop.className = 'dropdown-backdrop';
+                    backdrop.id = 'dropdown-backdrop';
+                    backdrop.onclick = closeDropdown;
+                    document.body.appendChild(backdrop);
+                }
             } else {
+                closeDropdown();
+            }
+        }
+
+        // Close dropdown function
+        function closeDropdown() {
+            const menu = document.getElementById('user-dropdown-menu');
+            const button = document.getElementById('user-menu-button');
+            const arrow = document.getElementById('dropdown-arrow');
+            const backdrop = document.getElementById('dropdown-backdrop');
+
+            if (menu) {
                 menu.style.display = 'none';
                 button.setAttribute('aria-expanded', 'false');
                 arrow.style.transform = 'rotate(0deg)';
+                
+                // Remove mobile-specific elements
+                document.body.classList.remove('dropdown-open');
+                if (backdrop) {
+                    backdrop.remove();
+                }
             }
         }
 
@@ -79,13 +113,32 @@
         document.addEventListener('click', function(e) {
             const menu = document.getElementById('user-dropdown-menu');
             const button = document.getElementById('user-menu-button');
-            const arrow = document.getElementById('dropdown-arrow');
-
+            
             if (menu && button && !button.contains(e.target) && !menu.contains(e.target)) {
-                menu.style.display = 'none';
-                button.setAttribute('aria-expanded', 'false');
-                arrow.style.transform = 'rotate(0deg)';
+                closeDropdown();
             }
+        });
+
+        // Close dropdown on touch events for mobile
+        document.addEventListener('touchstart', function(e) {
+            const menu = document.getElementById('user-dropdown-menu');
+            const button = document.getElementById('user-menu-button');
+            
+            if (menu && button && !button.contains(e.target) && !menu.contains(e.target)) {
+                closeDropdown();
+            }
+        });
+
+        // Close dropdown on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            closeDropdown();
         });
     </script>
 
@@ -132,6 +185,36 @@
         .dropdown-enter-end {
             opacity: 1;
             transform: scale(1) translateY(0);
+        }
+
+        /* Mobile touch improvements */
+        @media (max-width: 768px) {
+            #user-dropdown-menu {
+                position: fixed !important;
+                top: 60px !important;
+                right: 10px !important;
+                left: 10px !important;
+                width: auto !important;
+                max-width: none !important;
+                margin: 0 !important;
+                z-index: 9999 !important;
+            }
+            
+            /* Prevent scrolling when dropdown is open */
+            body.dropdown-open {
+                overflow: hidden;
+            }
+            
+            /* Add backdrop for mobile */
+            .dropdown-backdrop {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 9998;
+            }
         }
     </style>
 
@@ -216,7 +299,7 @@
                             <!-- Profile dropdown - Simplified and reliable -->
                             <div class="relative ml-3">
                                 <div>
-                                    <button onclick="toggleDropdown()"
+                                    <button onclick="toggleDropdown(event)"
                                             type="button"
                                             id="user-menu-button"
                                             class="flex items-center space-x-3 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-300 hover:bg-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
@@ -268,7 +351,7 @@
                                     <!-- Menu items -->
                                     <div class="py-1">
                                         <a href="{{ route('profile.edit') }}"
-                                           onclick="toggleDropdown()"
+                                           onclick="closeDropdown()"
                                            class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-150"
                                            role="menuitem">
                                             <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100 text-blue-600 mr-3">
@@ -281,7 +364,7 @@
                                         </a>
 
                                         <a href="{{ route('dashboard') }}"
-                                           onclick="toggleDropdown()"
+                                           onclick="closeDropdown()"
                                            class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-150"
                                            role="menuitem">
                                             <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-green-100 text-green-600 mr-3">
@@ -295,7 +378,7 @@
 
                                         @if(auth()->user()->is_admin)
                                             <a href="{{ route('security.dashboard') }}"
-                                               onclick="toggleDropdown()"
+                                               onclick="closeDropdown()"
                                                class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-150"
                                                role="menuitem">
                                                 <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-100 text-purple-600 mr-3">
@@ -314,7 +397,7 @@
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <button type="submit"
-                                                    onclick="toggleDropdown()"
+                                                    onclick="closeDropdown()"
                                                     class="flex items-center w-full px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors duration-150"
                                                     role="menuitem">
                                                 <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-red-100 text-red-600 mr-3">

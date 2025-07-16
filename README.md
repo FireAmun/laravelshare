@@ -3,9 +3,9 @@
 [![Laravel](https://img.shields.io/badge/Laravel-11.x-red.svg)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.2+-blue.svg)](https://php.net)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Deployed](https://img.shields.io/badge/Deployed-Render-success.svg)](https://laravelshare.onrender.com)
 
-A modern, secure, and feature-rich file sharing service built with Laravel 11. Similar to WeTransfer, but self-hosted with enhanced security features and customization options.
+A modern, secure, and feature-rich file sharing service built with Laravel 11. Similar to WeTransfer, but with enhanced security features and admin dashboard. **🌐 Live Demo: [https://laravelshare.onrender.com](https://laravelshare.onrender.com)**
 
 ## 🌟 Features
 
@@ -27,34 +27,34 @@ A modern, secure, and feature-rich file sharing service built with Laravel 11. S
 - **Bulk Operations** - Manage multiple files at once
 
 ### 👤 User Management
-- **User Authentication** - Secure login and registration
-- **Admin Dashboard** - Comprehensive administration panel
-- **User Profiles** - Manage account settings
-- **Role-Based Access** - Admin and user roles
-- **Account Verification** - Email verification system
+- **User Authentication** - Secure login and registration with Laravel Breeze
+- **Admin Dashboard** - Comprehensive administration panel with user management
+- **User Profiles** - Account settings and file management
+- **Role-Based Access** - Admin and regular user roles
+- **Admin Login** - Separate admin authentication portal (`/admin/login`)
 
 ### 📊 Analytics & Monitoring
 - **Download Statistics** - Track file access and downloads
-- **User Activity** - Monitor user behavior
-- **Security Logs** - Detailed security event logging
-- **System Monitoring** - Server health and performance
-- **Admin Dashboard** - Real-time statistics and insights
+- **User Activity** - Monitor user behavior and system usage
+- **Admin Analytics** - File management and user statistics
+- **System Monitoring** - Real-time system health
+- **Activity Logs** - Comprehensive logging system for debugging
 
 ### 🎨 User Experience
-- **Responsive Design** - Works on all devices
-- **Modern UI** - Clean, intuitive interface using Tailwind CSS
-- **Dark Mode Ready** - Prepared for theme switching
-- **Copy to Clipboard** - One-click link sharing
-- **Mobile Optimized** - Touch-friendly mobile interface
+- **Responsive Design** - Mobile-first responsive layout
+- **Modern UI** - Clean interface using Tailwind CSS and Alpine.js (replaced with vanilla JS)
+- **About Page** - Developer information and project details
+- **Copy to Clipboard** - One-click link sharing functionality
+- **Mobile Optimized** - Touch-friendly interface for all devices
 
 ## 🛠️ Technology Stack
 
 - **Backend**: Laravel 11.x (PHP 8.2+)
-- **Frontend**: Blade Templates, Tailwind CSS, Vanilla JavaScript
-- **Database**: MySQL 8.0+ / PostgreSQL 13+
-- **Storage**: Local filesystem (configurable for cloud)
-- **Caching**: Redis (optional)
-- **Queue**: Database/Redis
+- **Frontend**: Blade Templates, Tailwind CSS, Vanilla JavaScript (replaced Alpine.js)
+- **Database**: PostgreSQL 13+ (MySQL 8.0+ supported)
+- **Deployment**: Docker, Render Cloud Platform
+- **Storage**: Local filesystem with cloud-ready configuration
+- **Authentication**: Laravel Breeze with custom admin authentication
 - **Icons**: Font Awesome 6
 
 ## 📋 Requirements
@@ -62,11 +62,54 @@ A modern, secure, and feature-rich file sharing service built with Laravel 11. S
 - PHP 8.2 or higher
 - Composer
 - Node.js 18+ and npm
-- MySQL 8.0+ or PostgreSQL 13+
+- PostgreSQL 13+ (MySQL 8.0+ also supported)
 - Web server (Apache/Nginx)
-- Redis (optional, for caching and queues)
+- Docker (for deployment)
 
-## 🚀 Installation
+## 🚀 Quick Start & Deployment
+
+### 🌐 Live Demo
+Visit our deployed application: **[https://laravelshare.onrender.com](https://laravelshare.onrender.com)**
+
+### 📦 Docker Deployment (Render/Production)
+
+This project is configured for easy deployment to Render using Docker:
+
+1. **Fork this repository**
+2. **Connect to Render**:
+   - Create new Web Service on [Render](https://render.com)
+   - Connect your GitHub repository
+   - Set build command: `docker build`
+   - Set start command: `docker run`
+
+3. **Environment Variables** (set in Render dashboard):
+   ```env
+   APP_NAME="Laravel File Share"
+   APP_ENV=production
+   APP_KEY="base64:7cKsxNhWv6iZDF08RhttrlyWK7qc1otlqEwvfrtnoHs="
+   APP_DEBUG=false
+   APP_URL=https://your-app-name.onrender.com
+   
+   # PostgreSQL Database (provided by Render)
+   DB_CONNECTION=pgsql
+   DB_HOST=your-db-host
+   DB_PORT=5432
+   DB_DATABASE=your-db-name
+   DB_USERNAME=your-db-user
+   DB_PASSWORD=your-db-password
+   
+   # File Upload Settings
+   MAX_FILE_SIZE=5242880
+   UPLOADS_PER_HOUR=5
+   DOWNLOADS_PER_HOUR=25
+   ```
+
+### 🐳 Docker Files Included
+- `Dockerfile` - Complete PHP 8.2 + Apache + Node.js setup
+- `docker/startup.sh` - Automated Laravel optimization and migrations
+- `docker/apache-config.conf` - Apache configuration for Laravel
+
+## 🚀 Local Development
 
 ### Quick Start
 
@@ -101,6 +144,11 @@ A modern, secure, and feature-rich file sharing service built with Laravel 11. S
    DB_DATABASE=laravelshare
    DB_USERNAME=your_username
    DB_PASSWORD=your_password
+   
+   # File Upload Settings (optimized for free hosting)
+   MAX_FILE_SIZE=5242880  # 5MB
+   UPLOADS_PER_HOUR=5
+   DOWNLOADS_PER_HOUR=25
    ```
 
 6. **Run migrations and seeders**
@@ -125,6 +173,25 @@ A modern, secure, and feature-rich file sharing service built with Laravel 11. S
    ```
 
 Visit `http://localhost:8000` to access the application.
+
+### 🔑 Admin Access
+
+#### Development
+After running seeders, create an admin user:
+```bash
+php artisan tinker
+```
+```php
+$user = \App\Models\User::create([
+    'name' => 'Admin User',
+    'email' => 'admin@example.com',
+    'password' => bcrypt('admin123'),
+    'is_admin' => true
+]);
+```
+
+#### Production
+Access admin panel at: `https://laravelshare.onrender.com/admin/login`
 
 ### Production Deployment
 
@@ -155,37 +222,43 @@ Visit `http://localhost:8000` to access the application.
 
 ## ⚙️ Configuration
 
-### File Upload Settings
+### File Upload Settings (Optimized for Free Hosting)
 
-Edit `config/filesystems.php` and your `.env` file:
+Edit your `.env` file:
 
 ```env
-# File upload limits (in MB)
-FILE_MAX_SIZE=5
+# File upload limits (in bytes) - 5MB default for free hosting
+MAX_FILE_SIZE=5242880
 
-# Allowed file extensions (comma-separated)
-ALLOWED_EXTENSIONS=pdf,doc,docx,xls,xlsx,ppt,pptx,txt,csv,rtf,jpg,jpeg,png,gif,bmp,webp,svg,zip,rar,7z,gz
+# Rate limiting (optimized for free tier)
+UPLOADS_PER_HOUR=5
+DOWNLOADS_PER_HOUR=25
 
-# File encryption (true/false)
-ENCRYPT_FILES=true
+# Security settings
+LOGIN_ATTEMPTS=3
+REMEMBER_TOKEN_LIFETIME=525600
+TWO_FACTOR_ENABLED=false
+
+# File encryption and scanning (disabled for performance)
+ENCRYPT_FILES=false
+SCAN_FILES_FOR_MALWARE=false
 ```
 
 ### Security Configuration
 
 ```env
 # Rate limiting (requests per hour)
-RATE_LIMIT_UPLOADS=10
-RATE_LIMIT_DOWNLOADS=50
+UPLOADS_PER_HOUR=5
+DOWNLOADS_PER_HOUR=25
 
-# Admin credentials (change these!)
-ADMIN_EMAIL=admin@example.com
-ADMIN_PASSWORD=secure_password_here
+# Admin access
+# Create admin users through tinker or database seeder
 ```
 
-### Email Configuration
+### Email Configuration (Optional)
 
 ```env
-MAIL_MAILER=smtp
+MAIL_MAILER=log  # Uses log driver by default
 MAIL_HOST=your-smtp-host
 MAIL_PORT=587
 MAIL_USERNAME=your-email
@@ -203,17 +276,27 @@ MAIL_FROM_ADDRESS=noreply@yourdomain.com
 - Update profile settings
 
 ### Administrators
-- Access admin dashboard
-- Manage all users and files
-- View system statistics
-- Configure security settings
-- Monitor activity logs
-- Perform system maintenance
+- Access comprehensive admin dashboard
+- Manage all users and their files
+- View system statistics and analytics
+- Configure security settings and limits
+- Monitor activity logs and system health
+- Perform cleanup and maintenance tasks
+- Access admin panel at `/admin/login`
 
-### Default Admin Account
-After running seeders, you can login with:
-- **Email**: admin@example.com
-- **Password**: Change this in production!
+### Default Admin Setup
+Create admin users manually using Laravel Tinker:
+```bash
+php artisan tinker
+```
+```php
+\App\Models\User::create([
+    'name' => 'Admin',
+    'email' => 'admin@example.com', 
+    'password' => bcrypt('secure_password'),
+    'is_admin' => true
+]);
+```
 
 ## 📖 Usage
 
@@ -249,36 +332,54 @@ Content-Type: multipart/form-data
 
 file: [binary]
 password: [optional string]
-expires_in_days: [optional integer]
-max_downloads: [optional integer]
+expires_in_days: [optional integer, default: 7]
+max_downloads: [optional integer, default: unlimited]
 ```
 
 ### Download Endpoint
 ```http
 GET /d/{uuid}
+POST /d/{uuid}  # With password if required
 ```
 
-### Authentication
-All API endpoints support Laravel Sanctum authentication.
+### Admin Routes
+- `/admin/login` - Admin authentication
+- `/admin/dashboard` - Admin panel
+- `/admin/users` - User management  
+- `/admin/files` - File management
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
-1. **File upload fails**
-   - Check PHP `upload_max_filesize` and `post_max_size`
-   - Verify storage permissions
-   - Check available disk space
+1. **500 Server Error**
+   - Check APP_KEY is properly set with quotes
+   - Verify database connection settings
+   - Ensure PostgreSQL extension is installed
+   - Check file permissions on storage directories
 
-2. **Files not downloading**
-   - Verify storage symlink exists
-   - Check file permissions
-   - Review server error logs
+2. **File upload fails**
+   - Check PHP `upload_max_filesize` and `post_max_size`
+   - Verify storage permissions (775)
+   - Check available disk space
+   - Review MAX_FILE_SIZE setting
 
 3. **Admin dashboard not accessible**
-   - Run `php artisan db:seed --class=AdminUserSeeder`
+   - Create admin user using Tinker
+   - Check `is_admin` field in database
    - Clear application cache
-   - Check user role in database
+   - Verify admin routes are registered
+
+4. **Database connection issues**
+   - Verify PostgreSQL credentials in environment
+   - Check database server is running
+   - Ensure PostgreSQL PHP extensions are installed
+
+### Deployment Debugging
+
+Visit debugging endpoints (remove after fixing):
+- `/debug-enhanced.php` - Comprehensive system info
+- `/logs.php` - Error logs viewer
 
 ### Debug Mode
 
@@ -325,28 +426,47 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Font Awesome for icons
 - All contributors and testers
 
-## 📞 Support
+## 📞 Support & Links
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/laravelshare/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/laravelshare/discussions)
-- **Email**: support@yourdomain.com
+- **Live Demo**: [https://laravelshare.onrender.com](https://laravelshare.onrender.com)
+- **Admin Panel**: [https://laravelshare.onrender.com/admin/login](https://laravelshare.onrender.com/admin/login)
+- **Issues**: [GitHub Issues](https://github.com/FireAmun/laravelshare/issues)
+- **Repository**: [GitHub Repository](https://github.com/FireAmun/laravelshare)
+
+## 🚀 Deployment Status
+
+- ✅ **Production Ready** - Deployed on Render
+- ✅ **Docker Configured** - Complete containerization
+- ✅ **PostgreSQL Support** - Production database
+- ✅ **Admin Dashboard** - Fully functional
+- ✅ **File Upload/Download** - Core functionality working
+- ✅ **Responsive UI** - Mobile-friendly interface
 
 ## 🗺️ Roadmap
 
-### Version 2.0 (Planned)
-- [ ] File preview system
-- [ ] Bulk upload functionality
-- [ ] Email notifications
-- [ ] API v2 with better documentation
-- [ ] Mobile app (PWA)
-- [ ] Advanced analytics
-- [ ] Team collaboration features
+### ✅ Completed (v1.0)
+- [x] Core file upload/download functionality
+- [x] User authentication and registration
+- [x] Admin dashboard and user management
+- [x] Password protection for files
+- [x] File expiration and download limits
+- [x] Responsive UI with Tailwind CSS
+- [x] Docker deployment configuration
+- [x] PostgreSQL database support
+- [x] Rate limiting and security features
 
-### Version 2.1 (Future)
-- [ ] Cloud storage integration
-- [ ] Video/audio streaming
-- [ ] Real-time collaboration
-- [ ] AI-powered features
+### 🚧 Version 1.1 (In Progress)
+- [ ] Email notifications for file uploads
+- [ ] Advanced file analytics
+- [ ] Bulk file operations
+- [ ] API improvements and documentation
+
+### 📋 Version 2.0 (Planned)
+- [ ] File preview system
+- [ ] Cloud storage integration (AWS S3, etc.)
+- [ ] Team collaboration features
+- [ ] Mobile app (PWA)
+- [ ] Advanced analytics dashboard
 - [ ] Multi-language support
 
 ## 📊 Performance
@@ -373,6 +493,8 @@ For security issues, please email security@yourdomain.com
 
 ---
 
-**Made with ❤️ using Laravel**
+**🌟 Star this repository if you find it helpful!**
 
-*Star ⭐ this repository if you find it helpful!*
+**Made with ❤️ using Laravel 11 | Deployed on Render**
+
+*Visit the live demo: [https://laravelshare.onrender.com](https://laravelshare.onrender.com)*
