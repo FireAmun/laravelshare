@@ -63,7 +63,7 @@
             if (event) {
                 event.stopPropagation();
             }
-            
+
             const menu = document.getElementById('user-dropdown-menu');
             const button = document.getElementById('user-menu-button');
             const arrow = document.getElementById('dropdown-arrow');
@@ -73,7 +73,7 @@
                 menu.style.display = 'block';
                 button.setAttribute('aria-expanded', 'true');
                 arrow.style.transform = 'rotate(180deg)';
-                
+
                 // Add mobile-specific behavior
                 if (isMobile) {
                     document.body.classList.add('dropdown-open');
@@ -100,7 +100,7 @@
                 menu.style.display = 'none';
                 button.setAttribute('aria-expanded', 'false');
                 arrow.style.transform = 'rotate(0deg)';
-                
+
                 // Remove mobile-specific elements
                 document.body.classList.remove('dropdown-open');
                 if (backdrop) {
@@ -113,7 +113,7 @@
         document.addEventListener('click', function(e) {
             const menu = document.getElementById('user-dropdown-menu');
             const button = document.getElementById('user-menu-button');
-            
+
             if (menu && button && !button.contains(e.target) && !menu.contains(e.target)) {
                 closeDropdown();
             }
@@ -123,7 +123,7 @@
         document.addEventListener('touchstart', function(e) {
             const menu = document.getElementById('user-dropdown-menu');
             const button = document.getElementById('user-menu-button');
-            
+
             if (menu && button && !button.contains(e.target) && !menu.contains(e.target)) {
                 closeDropdown();
             }
@@ -199,12 +199,12 @@
                 margin: 0 !important;
                 z-index: 9999 !important;
             }
-            
+
             /* Prevent scrolling when dropdown is open */
             body.dropdown-open {
                 overflow: hidden;
             }
-            
+
             /* Add backdrop for mobile */
             .dropdown-backdrop {
                 position: fixed;
