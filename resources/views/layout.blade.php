@@ -18,128 +18,132 @@
 
     <!-- Dropdown functionality -->
     <script>
-        // Ensure Alpine.js loads properly
-        document.addEventListener('alpine:init', () => {
-            console.log('Alpine.js loaded successfully');
-        });
+        // Global dropdown state
+        let isDropdownOpen = false;
 
-        // Fallback dropdown functionality if Alpine.js fails
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                // Check if Alpine.js is loaded
-                if (typeof Alpine === 'undefined') {
-                    console.warn('Alpine.js not loaded, using fallback');
-                    initFallbackDropdown();
+        // Simple and reliable dropdown system
+        function initDropdown() {
+            const button = document.getElementById('user-menu-button');
+            const menu = document.getElementById('user-dropdown-menu');
+            const arrow = document.getElementById('dropdown-arrow');
+
+            if (!button || !menu) return;
+
+            // Button click handler
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleDropdownState();
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', function(e) {
+                if (isDropdownOpen && !menu.contains(e.target) && !button.contains(e.target)) {
+                    closeDropdownState();
                 }
-            }, 1000);
-        });
+            });
 
-        function initFallbackDropdown() {
-            const dropdownButton = document.querySelector('[data-dropdown-button]');
-            const dropdownMenu = document.querySelector('[data-dropdown-menu]');
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && isDropdownOpen) {
+                    closeDropdownState();
+                }
+            });
 
-            if (dropdownButton && dropdownMenu) {
-                let isOpen = false;
+            // Close on window resize
+            window.addEventListener('resize', function() {
+                if (isDropdownOpen) {
+                    closeDropdownState();
+                }
+            });
 
-                dropdownButton.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    isOpen = !isOpen;
-                    dropdownMenu.style.display = isOpen ? 'block' : 'none';
-                    dropdownButton.setAttribute('aria-expanded', isOpen);
+            // Add click handlers to menu items
+            const menuLinks = menu.querySelectorAll('a, button');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeDropdownState();
                 });
+            });
+        }
 
-                document.addEventListener('click', function(e) {
-                    if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                        isOpen = false;
-                        dropdownMenu.style.display = 'none';
-                        dropdownButton.setAttribute('aria-expanded', false);
-                    }
-                });
+        function toggleDropdownState() {
+            if (isDropdownOpen) {
+                closeDropdownState();
+            } else {
+                openDropdownState();
             }
         }
 
-        // Simple dropdown toggle function with improved mobile support
+        function openDropdownState() {
+            const menu = document.getElementById('user-dropdown-menu');
+            const button = document.getElementById('user-menu-button');
+            const arrow = document.getElementById('dropdown-arrow');
+
+            if (!menu || !button) return;
+
+            isDropdownOpen = true;
+            menu.style.display = 'block';
+            button.setAttribute('aria-expanded', 'true');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+
+            // Mobile specific behavior
+            if (window.innerWidth <= 768) {
+                document.body.style.overflow = 'hidden';
+
+                // Create backdrop
+                const backdrop = document.createElement('div');
+                backdrop.id = 'mobile-backdrop';
+                backdrop.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.3);
+                    z-index: 9998;
+                `;
+                backdrop.addEventListener('click', closeDropdownState);
+                document.body.appendChild(backdrop);
+            }
+        }
+
+        function closeDropdownState() {
+            const menu = document.getElementById('user-dropdown-menu');
+            const button = document.getElementById('user-menu-button');
+            const arrow = document.getElementById('dropdown-arrow');
+            const backdrop = document.getElementById('mobile-backdrop');
+
+            if (!menu || !button) return;
+
+            isDropdownOpen = false;
+            menu.style.display = 'none';
+            button.setAttribute('aria-expanded', 'false');
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+
+            // Remove mobile specific elements
+            document.body.style.overflow = '';
+            if (backdrop) {
+                backdrop.remove();
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initDropdown();
+        });
+
+        // Legacy function for onclick handlers (keeping for compatibility)
         function toggleDropdown(event) {
             if (event) {
+                event.preventDefault();
                 event.stopPropagation();
             }
-
-            const menu = document.getElementById('user-dropdown-menu');
-            const button = document.getElementById('user-menu-button');
-            const arrow = document.getElementById('dropdown-arrow');
-            const isMobile = window.innerWidth <= 768;
-
-            if (menu.style.display === 'none' || menu.style.display === '') {
-                menu.style.display = 'block';
-                button.setAttribute('aria-expanded', 'true');
-                arrow.style.transform = 'rotate(180deg)';
-
-                // Add mobile-specific behavior
-                if (isMobile) {
-                    document.body.classList.add('dropdown-open');
-                    // Create backdrop for mobile
-                    const backdrop = document.createElement('div');
-                    backdrop.className = 'dropdown-backdrop';
-                    backdrop.id = 'dropdown-backdrop';
-                    backdrop.onclick = closeDropdown;
-                    document.body.appendChild(backdrop);
-                }
-            } else {
-                closeDropdown();
-            }
+            toggleDropdownState();
         }
 
-        // Close dropdown function
         function closeDropdown() {
-            const menu = document.getElementById('user-dropdown-menu');
-            const button = document.getElementById('user-menu-button');
-            const arrow = document.getElementById('dropdown-arrow');
-            const backdrop = document.getElementById('dropdown-backdrop');
-
-            if (menu) {
-                menu.style.display = 'none';
-                button.setAttribute('aria-expanded', 'false');
-                arrow.style.transform = 'rotate(0deg)';
-
-                // Remove mobile-specific elements
-                document.body.classList.remove('dropdown-open');
-                if (backdrop) {
-                    backdrop.remove();
-                }
-            }
+            closeDropdownState();
         }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            const menu = document.getElementById('user-dropdown-menu');
-            const button = document.getElementById('user-menu-button');
-
-            if (menu && button && !button.contains(e.target) && !menu.contains(e.target)) {
-                closeDropdown();
-            }
-        });
-
-        // Close dropdown on touch events for mobile
-        document.addEventListener('touchstart', function(e) {
-            const menu = document.getElementById('user-dropdown-menu');
-            const button = document.getElementById('user-menu-button');
-
-            if (menu && button && !button.contains(e.target) && !menu.contains(e.target)) {
-                closeDropdown();
-            }
-        });
-
-        // Close dropdown on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeDropdown();
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            closeDropdown();
-        });
     </script>
 
     <!-- Tailwind Configuration -->
@@ -185,36 +189,31 @@
         .dropdown-enter-end {
             opacity: 1;
             transform: scale(1) translateY(0);
-        }
-
-        /* Mobile touch improvements */
+        }        /* Mobile touch improvements */
         @media (max-width: 768px) {
             #user-dropdown-menu {
                 position: fixed !important;
-                top: 60px !important;
-                right: 10px !important;
+                top: 70px !important;
                 left: 10px !important;
+                right: 10px !important;
                 width: auto !important;
                 max-width: none !important;
                 margin: 0 !important;
                 z-index: 9999 !important;
+                transform: translateY(0) !important;
             }
 
-            /* Prevent scrolling when dropdown is open */
+            /* Prevent body scroll when dropdown is open */
             body.dropdown-open {
-                overflow: hidden;
+                overflow: hidden !important;
+                position: fixed !important;
+                width: 100% !important;
             }
+        }
 
-            /* Add backdrop for mobile */
-            .dropdown-backdrop {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.3);
-                z-index: 9998;
-            }
+        /* Ensure dropdown is hidden by default */
+        #user-dropdown-menu {
+            display: none;
         }
     </style>
 
@@ -299,8 +298,7 @@
                             <!-- Profile dropdown - Simplified and reliable -->
                             <div class="relative ml-3">
                                 <div>
-                                    <button onclick="toggleDropdown(event)"
-                                            type="button"
+                                    <button type="button"
                                             id="user-menu-button"
                                             class="flex items-center space-x-3 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-300 hover:bg-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
                                             aria-expanded="false"
@@ -351,7 +349,6 @@
                                     <!-- Menu items -->
                                     <div class="py-1">
                                         <a href="{{ route('profile.edit') }}"
-                                           onclick="closeDropdown()"
                                            class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-150"
                                            role="menuitem">
                                             <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100 text-blue-600 mr-3">
@@ -364,7 +361,6 @@
                                         </a>
 
                                         <a href="{{ route('dashboard') }}"
-                                           onclick="closeDropdown()"
                                            class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-150"
                                            role="menuitem">
                                             <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-green-100 text-green-600 mr-3">
@@ -378,7 +374,6 @@
 
                                         @if(auth()->user()->is_admin)
                                             <a href="{{ route('security.dashboard') }}"
-                                               onclick="closeDropdown()"
                                                class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-150"
                                                role="menuitem">
                                                 <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-100 text-purple-600 mr-3">
@@ -397,7 +392,6 @@
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <button type="submit"
-                                                    onclick="closeDropdown()"
                                                     class="flex items-center w-full px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors duration-150"
                                                     role="menuitem">
                                                 <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-red-100 text-red-600 mr-3">
