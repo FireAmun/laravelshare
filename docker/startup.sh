@@ -2,6 +2,10 @@
 
 echo "Starting Laravel application..."
 
+# Force HTTPS for Laravel when behind proxy
+export HTTPS=on
+export SERVER_PORT=443
+
 # Create required directories
 mkdir -p /var/www/html/storage/logs
 mkdir -p /var/www/html/storage/framework/cache
